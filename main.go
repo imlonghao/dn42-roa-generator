@@ -36,13 +36,18 @@ func mkroa(registry string, routeType int) {
 	for _, file := range files {
 		var maxLength int
 		length, _ := strconv.Atoi(strings.Split(file.Name(), "_")[1])
-		if length >= 28 {
-			maxLength = length
+		if routeType == 4 {
+			if length >= 28 {
+				maxLength = length
+			} else {
+				maxLength = 28
+			}
 		} else {
-			maxLength = 28
-		}
-		if routeType == 6 {
-			maxLength = 64
+			if length >= 64 {
+				maxLength = length
+			} else {
+				maxLength = 64
+			}
 		}
 		f, err := os.Open(registry + folderName + file.Name())
 		if err != nil {
