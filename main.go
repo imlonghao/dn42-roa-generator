@@ -56,7 +56,15 @@ func mkroa(registry string, routeType int) {
 		scanner := bufio.NewScanner(f)
 		for scanner.Scan() {
 			if strings.HasPrefix(scanner.Text(), "origin:") {
-				fmt.Printf("route %s max %d as %s;\n", strings.Replace(file.Name(), "_", "/", 1), maxLength, scanner.Text()[22:])
+				as := scanner.Text()[22:]
+				if as == "0" {
+					if routeType == 4 {
+						maxLength = 32
+					} else {
+						maxLength = 128
+					}
+				}
+				fmt.Printf("route %s max %d as %s;\n", strings.Replace(file.Name(), "_", "/", 1), maxLength, as)
 			}
 		}
 		f.Close()
