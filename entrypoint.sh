@@ -1,5 +1,11 @@
 #!/bin/sh
 
+if [ ! -f /root/.gitconfig ]
+then
+git config --global user.name imlonghao
+git config --global user.email "git@imlonghao.com"
+fi
+
 if [ ! -d /root/.ssh ]
 then
 mkdir /root/.ssh
