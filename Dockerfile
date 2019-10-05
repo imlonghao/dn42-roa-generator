@@ -7,7 +7,7 @@ RUN apk add upx && \
     upx --lzma --best /app
 
 FROM alpine:latest
-RUN apk --no-cache add ca-certificates git
+RUN apk --no-cache add ca-certificates git openssh-client
 COPY --from=builder /app /
 COPY entrypoint.sh /
 CMD ["/entrypoint.sh"]
