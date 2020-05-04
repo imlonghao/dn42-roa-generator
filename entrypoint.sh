@@ -21,7 +21,7 @@ fi
 
 if [ ! -f /root/.ssh/id_ed25519 ]
 then
-cp /run/secrets/id_ed25519 /root/.ssh/id_ed25519
+cp /mnt/id_ed25519 /root/.ssh/id_ed25519
 chmod 0400 /root/.ssh/id_ed25519
 fi
 
