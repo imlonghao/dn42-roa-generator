@@ -17,7 +17,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
       - name: Publish to Registry
-        uses: elgohr/Publish-Docker-Github-Action@2.3
+        uses: elgohr/Publish-Docker-Github-Action@v5
         with:
           name: imlonghao/dn42-roa-generator:latest
           username: ${{ secrets.DOCKER_USERNAME }}
